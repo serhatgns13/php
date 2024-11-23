@@ -4,8 +4,13 @@
 class HomeController
 {
    // mehod tanımlama
-   function index()
+
+   private $number = 100; // sadece bu class da kullanılır
+   protected $string = ""; // sadece ben ve kalıtım yoluyla ilişkili olduklarım kullanır
+   public $array =  []; // her yerde kullanılabilir
+  public function index()
    {
-      require_once APP_ROOT . '/view/start.php';
+      $title = "Ana Sayfa";
+      require_once APP_ROOT . '/view/home.php';
    }
 }

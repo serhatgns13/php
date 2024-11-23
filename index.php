@@ -185,16 +185,22 @@ require_once APP_ROOT . '/controller/ProductController.php';
 
 if ($_SERVER['REQUEST_URI'] == '/') {
 
-    $HomeController = new HomeController();
-    $HomeController->index();
+    call_user_func_array([new HomeController, "index"], []);
+
+
+    // $HomeController = new HomeController();
+    // $HomeController->index();
 
     // require_once APP_ROOT . '/view/start.php';
 } else if ($_SERVER['REQUEST_URI'] == '/products') {
-    // require_once APP_ROOT . '/view/products.php';
-    $PorductController = new $PorductController();
 
-    $PorductController->product();
+    call_user_func_array([new ProductController, "products"], []);
+    // require_once APP_ROOT . '/view/products.php';
+    // $PorductController = new ProductController();
+    // $PorductController->products();
 
 } else {
     require_once APP_ROOT . '/view/404.php';
 }
+
+// static sınıf ve fonksiyonla, kalıtım, url den parametrelerin alınıp class ve methoda aktarılması
